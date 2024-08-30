@@ -1,0 +1,37 @@
+<h3>Listado de Héroes</h3>
+<!--
+<ul class="mt-2 list-group">
+  <li class="list-group-item">SpiderMan</li>
+  <li class="list-group-item">Iroman</li>
+  <li class="list-group-item">Hulk</li>
+  <li class="list-group-item">Thor</li>
+</ul>
+-->
+<!--
+<div *ngIf="deletedHero">
+  <h3>Héroe borradp <small class="text-danger"> {{ deletedHero }} </small></h3>
+</div>
+<h3 *ngIf="!deletedHero">No ha borrado nada.</h3>
+-->
+<!-- suguiente forma creo variable tempotral  nothingWasDeleted y creo ng-template #nothingWasDeleted para usarla -->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Héroe borradp <small class="text-danger"> {{ deletedHero }} </small></h3>
+</div>
+<!-- #nothingWasDeleted  sera falso mientra nse elimine sino sera verdadero -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+<!-- si existes dato *ngIf="heroNames.length > 0"-->
+<button
+  *ngIf="heroNames.length > 0"
+  (click) = "removeLastHero()"
+  class = "btn btn-outline-danger">
+  Borar óltimo héroe
+</button>
+
+<ul class="mt-2 list-group">
+  <li
+    *ngFor="let name of heroNames"
+    class="list-group-item"
+    >{{ name }}</li>
+</ul>

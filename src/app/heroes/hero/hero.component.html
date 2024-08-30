@@ -1,0 +1,38 @@
+<h1>{{ name.charAt(0).toUpperCase() + name.slice(1) }}</h1>
+
+<!-- definichon list dl -->
+<dl>
+    <td>Nombre:</td>
+    <dd> {{ name }} </dd>
+
+    <td>Edad:</td>
+    <dd> {{ age }} </dd>
+
+    <td>Método:</td>
+    <dd> {{ getHeroDescription() }} </dd>
+    <!--<dd> {{ 2 * 2 }} </dd>-->
+
+    <td>Capitalizado:</td>
+    <dd> {{ capitalizedName }}</dd>
+</dl>
+
+<button
+  *ngIf="name !== 'SpiderMan'"
+  class="btn btn-primary mx-2"
+  button (click)="changeHero( )">
+  Cambiar Nombre
+</button>
+
+<button
+  *ngIf="age !== 25"
+  class="btn btn-primary"
+  button (click)="changeAge( )">
+  Cambiar Edad
+</button>
+
+
+<button
+  class="btn btn-primary mx-2"
+  button (click)="resetForm( )">
+  Reset
+</button>
